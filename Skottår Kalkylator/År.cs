@@ -1,4 +1,6 @@
-﻿namespace Skottår_Kalkylator
+﻿using System.Globalization;
+
+namespace Skottår_Kalkylator
 {
     public class År
     {
@@ -11,6 +13,13 @@
         public static int FåDagsNummer(DateTime dag)
         {
             return dag.DayOfYear;
+        }
+
+        public static int FåVeckoNummer(DateTime datum)
+        {
+            Calendar calendar = CultureInfo.InvariantCulture.Calendar;
+            return calendar.GetWeekOfYear(datum,CalendarWeekRule.FirstFullWeek,DayOfWeek.Sunday);
+
         }
 
 

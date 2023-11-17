@@ -59,53 +59,87 @@ namespace Skottår_Test
         //     Assert.IsFalse(result); 
         // }
 
+        // [Test]
+        // public void TestFörstaDagenPåÅret()
+        // {
+        //     // Arrange
+        //     DateTime DagAttKontrollera = new DateTime(2023, 01, 01);
+        //     // Act 
+        //     int result = År.FåDagsNummer(DagAttKontrollera);
+
+        //     Assert.AreEqual(1,result);
+
+        // }
+
+        // [Test]
+        // public void TestSistaDagenPåÅret()
+        // {
+        //     // Arrange
+        //     DateTime DagAttKontrollera = new DateTime(2023, 12, 31);
+        //     // Act 
+        //     int result = År.FåDagsNummer(DagAttKontrollera);
+
+        //     Assert.AreEqual(365,result);
+
+        // }
+
+        // [Test]
+        // public void Test60eDagenPåÅret()
+        // {
+        //     // Arrange
+        //     DateTime DagAttKontrollera = new DateTime(2023, 03, 01);
+        //     // Act 
+        //     int result = År.FåDagsNummer(DagAttKontrollera);
+
+        //     Assert.AreEqual(60,result);
+
+        // }
+
+        // [Test]
+        //  public void TestFödelsedagen()
+        // {
+        //     // Arrange
+        //     DateTime DagAttKontrollera = new DateTime(2023, 06, 10);
+        //     // Act 
+        //     int result = År.FåDagsNummer(DagAttKontrollera);
+        //     // Assert
+        //     Assert.AreEqual(161,result);
+        // }   
+
+
+
+
         [Test]
-        public void TestFörstaDagenPåÅret()
+         public void TestSistaVeckan()
         {
             // Arrange
-            DateTime DagAttKontrollera = new DateTime(2023, 01, 01);
+            DateTime VeckaAttKontrollera = new DateTime (2023, 12, 30);
             // Act 
-            int result = År.FåDagsNummer(DagAttKontrollera);
-
-            Assert.AreEqual(1,result);
-
-        }
-
-        [Test]
-        public void TestSistaDagenPåÅret()
-        {
-            // Arrange
-            DateTime DagAttKontrollera = new DateTime(2023, 12, 31);
-            // Act 
-            int result = År.FåDagsNummer(DagAttKontrollera);
-
-            Assert.AreEqual(365,result);
-
-        }
-
-        [Test]
-        public void Test60eDagenPåÅret()
-        {
-            // Arrange
-            DateTime DagAttKontrollera = new DateTime(2023, 03, 01);
-            // Act 
-            int result = År.FåDagsNummer(DagAttKontrollera);
-
-            Assert.AreEqual(60,result);
-
-        }
-
-        [Test]
-         public void TestFödelsedagen()
-        {
-            // Arrange
-            DateTime DagAttKontrollera = new DateTime(2023, 06, 10);
-            // Act 
-            int result = År.FåDagsNummer(DagAttKontrollera);
-
-            Assert.AreEqual(161,result);
+            int result = År.FåVeckoNummer(VeckaAttKontrollera);
+            // Assert
+            Assert.AreEqual(52,result);
         }   
 
+         [Test]
+         public void TestFörstaVeckan()
+        {
+            // Arrange
+            DateTime VeckaAttKontrollera = new DateTime (2023, 01, 01);
+            // Act 
+            int result = År.FåVeckoNummer(VeckaAttKontrollera);
+            // Assert
+            Assert.AreEqual(1,result);
+        }   
+         [Test]
+         public void TestMidYear()
+        {
+            // Arrange
+            DateTime VeckaAttKontrollera = new DateTime (2023, 06, 24);
+            // Act 
+            int result = År.FåVeckoNummer(VeckaAttKontrollera);
+            // Assert
+            Assert.AreEqual(25,result);
+        }   
 
 
     }
