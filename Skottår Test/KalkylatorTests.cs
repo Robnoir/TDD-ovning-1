@@ -47,6 +47,19 @@ namespace Skottår_Test
             Assert.IsTrue(result);
         }
 
+        [Test]
+        public void NärAllaÅrÄrDelbaraMed4_ShouldreturnTrue()
+        {
+            //Arrange
+            int årAttKontrollera = 2020;
+
+            // Act
+            bool result = År.AllaÅrSomInteGårAttDelaMed4(årAttKontrollera);
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
 
     }
 }
