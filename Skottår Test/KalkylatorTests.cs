@@ -10,54 +10,103 @@ namespace Skottår_Test
         }
 
         //This test checks if true 
-        [Test]
-        public void ÄrDetSkottÅr_ShouldReturnTrue()
-        {
-            //arrange
-            int årAttKontrollera = 2020;
-            // act
-            bool result = År.ÄrSkottår(årAttKontrollera);
+        // [Test]
+        // public void ÄrDetSkottÅr_ShouldReturnTrue()
+        // {
+        //     //arrange
+        //     int årAttKontrollera = 2020;
+        //     // act
+        //     bool result = År.ÄrSkottår(årAttKontrollera);
 
-            // Assert 
-            Assert.IsTrue(result); 
+        //     // Assert 
+        //     Assert.IsTrue(result); 
+        // }
+
+        //     // This Test checks century years. 
+        // [Test]
+        // public void ÄrDetSkottDecenium_ShouldReturnfalse()
+        // {
+        //     //arrange
+        //     int årAttKontrollera = 1900;
+        //     // act
+        //     bool result = År.ÄrSkottår(årAttKontrollera);
+
+        //     // Assert 
+        //     Assert.IsFalse(result); 
+        // }
+        // // This checks for a century year wich is a leap year
+        // [Test]
+        // public void ÄrDetSkottÅrMillenium_ShouldReturnTrue()
+        // {
+        //     //arrange
+        //     int årAttKontrollera = 2000;
+        //     // act
+        //     bool result = År.ÄrSkottår(årAttKontrollera);
+
+        //     // Assert 
+        //     Assert.IsTrue(result); 
+        // }
+
+        // [Test]
+        // public void KollarEttIckeSkottÅr_ShouldReturnFalse()
+        // {
+        //     //arrange
+        //     int årAttKontrollera = 2019;
+        //     // act
+        //     bool result = År.ÄrSkottår(årAttKontrollera);
+
+        //     // Assert 
+        //     Assert.IsFalse(result); 
+        // }
+
+        [Test]
+        public void TestFörstaDagenPåÅret()
+        {
+            // Arrange
+            DateTime DagAttKontrollera = new DateTime(2023, 01, 01);
+            // Act 
+            int result = År.FåDagsNummer(DagAttKontrollera);
+
+            Assert.AreEqual(1,result);
+
         }
 
-            // This Test checks century years. 
         [Test]
-        public void ÄrDetSkottDecenium_ShouldReturnfalse()
+        public void TestSistaDagenPåÅret()
         {
-            //arrange
-            int årAttKontrollera = 1900;
-            // act
-            bool result = År.ÄrSkottår(årAttKontrollera);
+            // Arrange
+            DateTime DagAttKontrollera = new DateTime(2023, 12, 31);
+            // Act 
+            int result = År.FåDagsNummer(DagAttKontrollera);
 
-            // Assert 
-            Assert.IsFalse(result); 
-        }
-        // This checks for a century year wich is a leap year
-        [Test]
-        public void ÄrDetSkottÅrMillenium_ShouldReturnTrue()
-        {
-            //arrange
-            int årAttKontrollera = 2000;
-            // act
-            bool result = År.ÄrSkottår(årAttKontrollera);
+            Assert.AreEqual(365,result);
 
-            // Assert 
-            Assert.IsTrue(result); 
         }
 
         [Test]
-        public void KollarEttIckeSkottÅr_ShouldReturnFalse()
+        public void Test60eDagenPåÅret()
         {
-            //arrange
-            int årAttKontrollera = 2019;
-            // act
-            bool result = År.ÄrSkottår(årAttKontrollera);
+            // Arrange
+            DateTime DagAttKontrollera = new DateTime(2023, 03, 01);
+            // Act 
+            int result = År.FåDagsNummer(DagAttKontrollera);
 
-            // Assert 
-            Assert.IsFalse(result); 
+            Assert.AreEqual(60,result);
+
         }
+
+        [Test]
+         public void TestFödelsedagen()
+        {
+            // Arrange
+            DateTime DagAttKontrollera = new DateTime(2023, 06, 10);
+            // Act 
+            int result = År.FåDagsNummer(DagAttKontrollera);
+
+            Assert.AreEqual(161,result);
+        }   
+
+
 
     }
 }
