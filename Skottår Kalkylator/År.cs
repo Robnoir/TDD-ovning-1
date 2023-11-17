@@ -2,10 +2,41 @@
 {
     public class År
     {
-        public static void ÄrSkottår(int år)
+        public static bool ÄrSkottår(int år)
         {
-            throw new NotImplementedException();
+            if(år % 400 == 0 )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
+        public static bool ÄrInteSkottår(int år)
+        {
+            if(år % 100 == 0 && år % 400 !=0)
+            {
+             return true;
+
+            }else
+            {
+                return false;
+            }
+        }
+
+        public static bool ÄrSkottårMenDelatPå4(int år)
+        {
+            if(år % 4 == 0 && år % 100 != 0)
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        }
+
+
 
     }
 }

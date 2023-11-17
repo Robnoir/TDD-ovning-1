@@ -9,20 +9,44 @@ namespace Skottår_Test
         {
         }
 
-        [Test]
-        public void IsLeap_ThrowsNotImplementedException()
-        {
-            // Arrange
-            int årAttKontrollera = 2024;
-
-            // Act and Assert
-            Assert.Throws<NotImplementedException>(() => År.ÄrSkottår(årAttKontrollera));
-        }
-
+   
         [Test]
         public void När_ÅrÄrDelbartMed400_ShouldReturnTrue()
         {
-            Assert.Pass();
+            //arrange
+            int årAttKontrollera = 2000;
+            // act
+            bool result = År.ÄrSkottår(årAttKontrollera);
+
+            // Assert 
+            Assert.IsTrue(result); 
         }
+
+        [Test]
+        public void När_ÅrÄrDelBartMed100_ShouldReturnTrue()
+        {
+            // Arrange
+            int årAttKontrollera = 1700;
+
+            // Act
+            bool result = År.ÄrInteSkottår(årAttKontrollera);
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void NärÅrÄrDelbartMed4MenInteMed100_ShouldReturnTrue()
+        {   
+            // Arrange
+            int årAttKontrollera = 2008;
+            // Act
+            bool result = År.ÄrSkottårMenDelatPå4(årAttKontrollera);
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
+
     }
 }
