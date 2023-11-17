@@ -9,9 +9,34 @@ namespace Skottår_Test
         {
         }
 
-   
+        //This test checks if true 
         [Test]
-        public void När_ÅrÄrDelbartMed400_ShouldReturnTrue()
+        public void ÄrDetSkottÅr_ShouldReturnTrue()
+        {
+            //arrange
+            int årAttKontrollera = 2020;
+            // act
+            bool result = År.ÄrSkottår(årAttKontrollera);
+
+            // Assert 
+            Assert.IsTrue(result); 
+        }
+
+            // This Test checks century years. 
+        [Test]
+        public void ÄrDetSkottDecenium_ShouldReturnfalse()
+        {
+            //arrange
+            int årAttKontrollera = 1900;
+            // act
+            bool result = År.ÄrSkottår(årAttKontrollera);
+
+            // Assert 
+            Assert.IsFalse(result); 
+        }
+        // This checks for a century year wich is a leap year
+        [Test]
+        public void ÄrDetSkottÅrMillenium_ShouldReturnTrue()
         {
             //arrange
             int årAttKontrollera = 2000;
@@ -23,43 +48,16 @@ namespace Skottår_Test
         }
 
         [Test]
-        public void När_ÅrÄrDelBartMed100_ShouldReturnTrue()
+        public void KollarEttIckeSkottÅr_ShouldReturnFalse()
         {
-            // Arrange
-            int årAttKontrollera = 1700;
+            //arrange
+            int årAttKontrollera = 2019;
+            // act
+            bool result = År.ÄrSkottår(årAttKontrollera);
 
-            // Act
-            bool result = År.ÄrInteSkottår(årAttKontrollera);
-
-            // Assert
-            Assert.IsTrue(result);
+            // Assert 
+            Assert.IsFalse(result); 
         }
-
-        [Test]
-        public void NärÅrÄrDelbartMed4MenInteMed100_ShouldReturnTrue()
-        {   
-            // Arrange
-            int årAttKontrollera = 2008;
-            // Act
-            bool result = År.ÄrSkottårMenDelatPå4(årAttKontrollera);
-
-            // Assert
-            Assert.IsTrue(result);
-        }
-
-        [Test]
-        public void NärAllaÅrÄrDelbaraMed4_ShouldreturnTrue()
-        {
-            //Arrange
-            int årAttKontrollera = 2020;
-
-            // Act
-            bool result = År.AllaÅrSomInteGårAttDelaMed4(årAttKontrollera);
-
-            // Assert
-            Assert.IsTrue(result);
-        }
-
 
     }
 }
